@@ -7,7 +7,7 @@ from tf_example_util import create_tf_example
 from datetime import datetime
 from sklearn.model_selection import train_test_split
 
-train_data_dir = 'E:/TensorflowProjects/tank/train_data/images/'            
+train_data_path = 'E:/TensorflowProjects/tank/train_data/images/'            
 train_record_output_path = 'E:/TensorflowProjects/tank/train_data/records/tank_train.tfrecord'   
 test_record_output_path = 'E:/TensorflowProjects/tank/train_data/records/tank_test.tfrecord'    
 
@@ -17,7 +17,7 @@ default_annotation_format = '.txt'
 test_set_split_ratio = 0.5
 
 def main(_):   
-    data_files = os.listdir(train_data_dir)
+    data_files = os.listdir(train_data_path)
     image_list = []
     annotation_list = []
 
@@ -43,14 +43,14 @@ def main(_):
     # Write the training tf record.
     train_record_writer = tf.python_io.TFRecordWriter(train_record_output_path)
     for train_data_name in train_set:
-        tf_example = create_tf_example(train_data_dir, train_data_name, default_image_format, default_annotation_format)
+        tf_example = create_tf_example(train_data_path, train_data_name, default_image_format, default_annotation_format)
         train_record_writer.write(tf_example.SerializeToString())
     train_record_writer.close()
 
     # Write the test tf record.
     test_record_writer = tf.python_io.TFRecordWriter(test_record_output_path)
     for test_data_name in test_set:       
-        tf_example = create_tf_example(train_data_dir, test_data_name, default_image_format, default_annotation_format)
+        tf_example = create_tf_example(train_data_path, test_data_name, default_image_format, default_annotation_format)
         test_record_writer.write(tf_example.SerializeToString())
     test_record_writer.close()
 
