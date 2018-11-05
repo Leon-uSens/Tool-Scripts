@@ -3,7 +3,7 @@ import cv2
 # Import from PYTHONPATH: tensorflow/models/
 from object_detection.utils import dataset_util
 
-label_map = {'1': 'tank'}
+label_map = {'1': 'TargetObject'}
 
 def create_tf_example(data_path, data_name, image_format, annotation_format):
     """

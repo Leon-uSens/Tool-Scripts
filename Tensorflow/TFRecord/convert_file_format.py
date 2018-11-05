@@ -7,14 +7,14 @@ import codecs
 import cv2
 from glob import glob
 
-source_path = 'E:/TensorflowProjects/tank/train_data/annotations/'
-target_path = 'E:/TensorflowProjects/tank/train_data/images/'
+source_path = 'E:/TensorflowProjects/TargetObject/train_data/annotations/'
+target_path = 'E:/TensorflowProjects/TargetObject/train_data/images/'
 
 default_source_format = '.xml'
 default_target_format = '.txt'
 coding_format = "utf8"
 
-label_map = {'Yellow_Tank': '1'}
+label_map = {'TargetObject'': '1'}
 
 def convert_xml_to_txt(source_file, target_path):
     """
@@ -48,7 +48,7 @@ def convert_xml_to_txt(source_file, target_path):
                 target.write(label_map[label] + ' ')
 
                 # Write the bounding box parameters into the target file.
-                bounding_box = object_iterator.find("bndbox")
+                bounding_box = object_iterator.find("boundingbox")
                 xmin = float(bounding_box.find('xmin').text) / image_width
                 ymin = float(bounding_box.find('ymin').text) / image_height
                 xmax = float(bounding_box.find('xmax').text) / image_width               

@@ -7,9 +7,9 @@ from tf_example_util import create_tf_example
 from datetime import datetime
 from sklearn.model_selection import train_test_split
 
-train_data_path = 'E:/TensorflowProjects/tank/data/images/'            
-train_record_output_path = 'E:/TensorflowProjects/tank/data/records/tank_train.record'   
-test_record_output_path = 'E:/TensorflowProjects/tank/data/records/tank_test.record'    
+train_data_path = 'E:/TensorflowProjects/TargetObject/data/images/'            
+train_record_output_path = 'E:/TensorflowProjects/TargetObject/data/records/train.record'   
+test_record_output_path = 'E:/TensorflowProjects/TargetObject/data/records/test.record'    
 
 default_image_format = '.JPEG'
 default_annotation_format = '.txt'
